@@ -36,3 +36,6 @@ _build/
 [Bb]uild
 Release
 Debug
+
+# binary dir
+bin
