@@ -5,19 +5,29 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include "AVLNode.h"
 
 class AVLTree {
 public:
     AVLTree();
     ~AVLTree();
 
-    void insert(const int value);
-    void erase(const int value);
+    void insert(int key, std::string value);
+    void erase(int key);
 
-    int find(const int value) const;
+    std::string find(int key);
 
 private:
-    // TODO
+    AVLNode* head;
+    AVLNode* insert(AVLNode* node, int key, std::string value);
+    AVLNode* find_min(AVLNode* node);
+    AVLNode* remove_min(AVLNode* node);
+    AVLNode* remove(AVLNode* node, int key);
+    AVLNode* find(AVLNode* node, int key);
+
+    AVLNode* rotate_left(AVLNode* node);
+    AVLNode* rotate_right(AVLNode* node);
+    AVLNode* balance(AVLNode* node);
 };
 
 #endif // AVL_TREE_H

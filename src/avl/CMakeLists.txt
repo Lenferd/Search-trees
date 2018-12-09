@@ -9,8 +9,8 @@ set(LIBRARY     "lib_${MODULE}")
 
 # Lib with AVL
 set(target ${LIBRARY})
-file(GLOB hrcs "AVL.h")
-file(GLOB srcs "AVL.cpp")
+file(GLOB hrcs "AVL.h" "AVLNode.h")
+file(GLOB srcs "AVL.cpp" "AVLNode.cpp")
 
 add_library(${target} STATIC ${hrcs} ${srcs})
 
