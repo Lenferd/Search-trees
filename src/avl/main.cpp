@@ -14,8 +14,9 @@ int main() {
         tree.insert(3, "C");
 
         std::cout << *tree.find(1) << std::endl;
-
         tree.erase(1);
+        std::cout << *tree.find(2) << std::endl;
+        tree.erase(3);
 
         auto res = tree.find(1);
         if (res) {

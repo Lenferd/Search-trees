@@ -21,4 +21,4 @@ add_subdirectory(src)
 include_directories(${INCLUDE_DIR})
 
 # add_subdirectory(perf-tests)
-# add_subdirectory(functional-tests)
+add_subdirectory(functional-tests)
