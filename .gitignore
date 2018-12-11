@@ -39,3 +39,6 @@ Debug
 
 # binary dir
 bin
+
+# IDE
+.idea/
