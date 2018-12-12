@@ -7,18 +7,9 @@ set(APP         "app_${MODULE}")
 set(LIBRARY     "lib_${MODULE}")
 
 
-# Lib
-set(target ${LIBRARY})
-file(GLOB hrcs "Treap.h")
-file(GLOB srcs "Treap.cpp")
+file(GLOB hrcs "Treap*.hpp")
 
-add_library(${target} STATIC ${hrcs} ${srcs})
-
-message(STATUS ${CMAKE_BINARY_DIR}/${target})
-
-# Application for debug ?
 set(target ${APP})
 file(GLOB main main.cpp)
 
 add_executable(${target} ${main})
-target_link_libraries(${target} ${LIBRARY})

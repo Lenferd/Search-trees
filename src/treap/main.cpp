@@ -4,8 +4,18 @@
 #include <algorithm>
 #include <utility>
 
-#include "treap.h"
+#include "Treap.hpp"
 
 int main() {
-    return 0;
+    Treap<int, int> tree{};
+    tree.insert(5, 10);
+    tree.insert(8, 20);
+    tree.erase(5);
+
+    auto res = tree.find(8);
+    if (res) {
+        std::cout << *res << std::endl;
+    } else {
+        std::cout << "Result is empty" << '\n';
+    }
 }
