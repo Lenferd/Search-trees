@@ -39,9 +39,7 @@ AVLTree<Key, T>::AVLTree() {
 
 template <typename Key, typename T>
 AVLTree<Key, T>::~AVLTree(){
-    if (!head) {
-        delete head;
-    }
+// TODO: delete tree
 }
 
 template <typename Key, typename T>
@@ -92,13 +90,13 @@ AVLNode<Key, T> *AVLTree<Key, T>::remove(AVLNode<Key, T> *node, Key key) {
         return nullptr;
     }
     if (key < node->key) {
-        return remove(node->left, key);
+        node->left = remove(node->left, key);
     } else if (key > node->key) {
-        return remove(node->right, key);
+        node->right = remove(node->right, key);
     } else {
         AVLNode<Key, T>* left = node->left;
         AVLNode<Key, T>* right = node->right;
-        delete node; // tut ved' net garbage collector'a? lol
+        delete node;
         if (!right) {
             return left;
         }
@@ -107,6 +105,7 @@ AVLNode<Key, T> *AVLTree<Key, T>::remove(AVLNode<Key, T> *node, Key key) {
         min->left = left;
         return balance(min);
     }
+    return balance(node);
 }
 
 template <typename Key, typename T>

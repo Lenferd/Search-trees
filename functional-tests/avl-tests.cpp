@@ -17,7 +17,7 @@ class AVL_Functional_STR_INT : public ::testing::Test {
 
 class AVL_Functional_DOBULE_INT : public ::testing::Test {
 protected:
-  AVLTree<double, int> _tree;
+  AVLTree<int, double> _tree;
 };
 
 TEST_F(AVL_Functional_STR_INT, CanInsertKeyStrValInt) {

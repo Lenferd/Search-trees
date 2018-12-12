@@ -15,8 +15,6 @@ public:
 
     explicit AVLNode(Key k, T v);
 
-    ~AVLNode();
-
     void update_values();
     int balance_factor();
 };
@@ -27,12 +25,6 @@ AVLNode<Key, T>::AVLNode(Key k, T v) {
     value = v;
     left = right = nullptr;
     height = 1;
-}
-
-template<typename Key, typename T>
-AVLNode<Key, T>::~AVLNode() {
-    delete left;
-    delete right;
 }
 
 template<typename Key, typename T>
