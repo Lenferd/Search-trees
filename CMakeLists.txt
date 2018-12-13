@@ -18,7 +18,5 @@ add_subdirectory(thirdparty)
 
 add_subdirectory(src)
 
-include_directories(${INCLUDE_DIR})
-
 # add_subdirectory(perf-tests)
 add_subdirectory(functional-tests)
