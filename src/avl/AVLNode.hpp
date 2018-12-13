@@ -31,8 +31,8 @@ AVLNode<Key, T>::AVLNode(Key k, T v) {
 
 template<typename Key, typename T>
 AVLNode<Key, T>::~AVLNode() {
-    delete left;
-    delete right;
+    if (left) delete left;
+    if (right) delete right;
 }
 
 template<typename Key, typename T>
