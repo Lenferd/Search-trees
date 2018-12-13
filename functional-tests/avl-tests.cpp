@@ -15,7 +15,7 @@ class AVL_Functional_STR_INT : public ::testing::Test {
   AVLTree<std::string, int> _tree;
 };
 
-class AVL_Functional_DOBULE_INT : public ::testing::Test {
+class AVL_Functional_INT_DOUBLE : public ::testing::Test {
 protected:
   AVLTree<int, double> _tree;
 };
@@ -93,7 +93,7 @@ TEST_F(AVL_Functional_STR_INT, CorrectErase_Many) {
     }
 }
 
-TEST_F(AVL_Functional_DOBULE_INT, CanInsertKeyIntValDouble) {
+TEST_F(AVL_Functional_INT_DOUBLE, CanInsertKeyIntValDouble) {
 
     const int key1 = 1;
     const int key2 = 2;

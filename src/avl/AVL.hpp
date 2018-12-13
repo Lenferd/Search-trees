@@ -39,7 +39,9 @@ AVLTree<Key, T>::AVLTree() {
 
 template <typename Key, typename T>
 AVLTree<Key, T>::~AVLTree(){
-// TODO: delete tree
+    if (head) {
+        delete head;
+    }
 }
 
 template <typename Key, typename T>
@@ -96,6 +98,8 @@ AVLNode<Key, T> *AVLTree<Key, T>::remove(AVLNode<Key, T> *node, Key key) {
     } else {
         AVLNode<Key, T>* left = node->left;
         AVLNode<Key, T>* right = node->right;
+        node->left = nullptr;
+        node->right = nullptr;
         delete node;
         if (!right) {
             return left;
