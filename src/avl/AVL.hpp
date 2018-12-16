@@ -20,7 +20,7 @@ public:
     T* find(Key key);
 
 private:
-    AVLNode<Key, T>* head;
+    AVLNode<Key, T>* root;
     AVLNode<Key, T>* insert(AVLNode<Key, T>* node, Key key, T value);
     AVLNode<Key, T>* find_min(AVLNode<Key, T>* node);
     AVLNode<Key, T>* remove_min(AVLNode<Key, T>* node);
@@ -34,29 +34,29 @@ private:
 
 template <typename Key, typename T>
 AVLTree<Key, T>::AVLTree() {
-    head = nullptr;
+    root = nullptr;
 }
 
 template <typename Key, typename T>
 AVLTree<Key, T>::~AVLTree(){
-    if (head) {
-        delete head;
+    if (root) {
+        delete root;
     }
 }
 
 template <typename Key, typename T>
 void AVLTree<Key, T>::insert(Key key, T value) {
-    head = insert(head, key, value);
+    root = insert(root, key, value);
 }
 
 template <typename Key, typename T>
 void AVLTree<Key, T>::erase(Key key) {
-    head = remove(head, key);
+    root = remove(root, key);
 }
 
 template <typename Key, typename T>
 T* AVLTree<Key, T>::find(Key key) {
-    AVLNode<Key, T>* result = find(head, key);
+    AVLNode<Key, T>* result = find(root, key);
     return result ? &result->value : nullptr;
 }
 
