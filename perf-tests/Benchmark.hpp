@@ -20,6 +20,8 @@ typedef std::chrono::high_resolution_clock Time;
                                 TIME_CACL \
                                 TIME_PASS
 
+#define CSV
+
 class BenchState;
 class BenchTest;
 std::vector<std::shared_ptr<BenchTest>> _benchTests;
@@ -87,11 +89,21 @@ BenchTest* BENCH(void (*f)(BenchState&), std::string test_name) {
 
 
 void BENCH_RUN() {
-    printf("[BENCH]%22s/%-10s%-12s%-12s%-12s%-12s%-10sTime iterations\n",
+    #ifdef CSV
+    printf("[BENCH];%s;%s;%s;%s;%s;%s;%s;Time iterations\n",
+    "Algo;Test", "AlgInter", "Time (ms)", "Time (ns)", "Dt (ns)", "Max (ns)", "Min (ns)");
+    #else
+    printf("[BENCH]%25s/%-10s%-12s%-12s%-12s%-12s%-10sTime iterations\n",
      "TestName", "AlgInter", "Time (ms)", "Time (ns)", "Dt (ns)", "Max (ns)", "Min (ns)");
-    printf("=====================================================================================================================================\n");
+    #endif
+    // printf("=====================================================================================================================================\n");
     char templ[] =
+    #ifdef CSV
+            "[BENCH];%s;%d;%ld;%ld;%ld;%ld;%ld;Tested on %d iterations\n";
+    #else
            "[BENCH]%22s/%-10d%-12ld%-12ld%-12ld%-12ld%-10ldTested on %d iterations\n";
+    #endif
+           // "[BENCH];%25s;%-10d;%-12ld;%-12ld;%-12ld;%-12ld;%-10ldTested on %d iterations\n";
     for (auto& test : _benchTests) {
         for (auto& state : test->getStates()) {
             int iterations = state->range(0);
