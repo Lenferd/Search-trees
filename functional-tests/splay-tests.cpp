@@ -6,12 +6,6 @@
 
 class SPLAY_Functional_STR_INT : public ::testing::Test {
  protected:
-  // void SetUp() override {
-  //
-  // }
-  //
-  // void TearDown() override {}
-
   SplayTree<std::string, int> _tree;
 };
 
@@ -112,36 +106,3 @@ TEST_F(SPLAY_Functional_INT_DOUBLE, CanInsertKeyIntValDouble) {
     ASSERT_EQ(*_tree.find(key1), value1);
     ASSERT_EQ(*_tree.find(key3), value3);
 }
-// TEST_F(AVL_Functional, RemoveMiddle) {
-//     const std::string key = "first_val";
-//     int value = 42;
-//     int
-//     const int count = 10;
-//
-//     for (size_t i = 0; i < count; i++) {
-//         ASSERT_NO_THROW(_tree.insert(key + std::to_string(i), value++));
-//     }
-//
-//     for (size_t i = 0; i < count; i++) {
-//         ASSERT_EQ(*_tree.find(key + std::to_string(i)), value--);
-//     }
-// }
-//
-// TEST_F(AVL_Functional, Find) {
-//     // _tree.insert(1);
-//     // auto * tree = new AVLTree();
-//     // tree->insert(1);
-//     // tree->insert(2);
-//     // tree->insert(3);
-//     //
-//     // auto result = tree->find(1) ? "Exist" : "Not exist";
-//     // std::cout << result << std::endl;
-//     //
-//     // tree->erase(1);
-//     //
-//     // result = tree->find(1) ? "Exist" : "Not exist";
-//     // std::cout << result << std::endl;
-//     //
-//     // std::cout << "OP mizantrop";
-//     // return 0;
-// }
