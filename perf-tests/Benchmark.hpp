@@ -110,7 +110,6 @@ void BENCH_RUN() {
             int algorithm_runs = state->range(1);
             long* time_result = new long[iterations];
             for (size_t i = 0; i < iterations; i++) {
-                usleep(100);
                 test->FunctCall(*state);
                 time_result[i] = state->GetInterTime();
                 // printf("%ld\n", state->GetInterTime());
