@@ -5,4 +5,10 @@ include_directories(util)
 file(GLOB srcs "*.cpp")
 
 add_executable(${target} ${srcs})
-target_link_libraries(${target} benchmark benchmark_main lib_avl)
+target_include_directories(${target}
+                        PUBLIC
+                        ../src/avl
+                        ../src/treap
+                        ../src/splay
+                )
+target_link_libraries(${target})

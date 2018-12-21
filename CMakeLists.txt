@@ -18,5 +18,5 @@ add_subdirectory(thirdparty)
 
 add_subdirectory(src)
 
-# add_subdirectory(perf-tests)
+add_subdirectory(perf-tests)
 add_subdirectory(functional-tests)
