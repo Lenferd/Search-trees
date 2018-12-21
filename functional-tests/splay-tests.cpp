@@ -1,33 +1,33 @@
 #include <gtest/gtest.h>
-#include "AVL.hpp"
+#include "Splay.hpp"
 #include <string>
 
 #define DEBUG
 
-class AVL_Functional_STR_INT : public ::testing::Test {
+class SPLAY_Functional_STR_INT : public ::testing::Test {
  protected:
-  AVLTree<std::string, int> _tree;
+  SplayTree<std::string, int> _tree;
 };
 
-class AVL_Functional_INT_DOUBLE : public ::testing::Test {
+class SPLAY_Functional_INT_DOUBLE : public ::testing::Test {
 protected:
-  AVLTree<int, double> _tree;
+    SplayTree<int, double> _tree;
 };
 
-TEST_F(AVL_Functional_STR_INT, CanInsertKeyStrValInt) {
+TEST_F(SPLAY_Functional_STR_INT, CanInsertKeyStrValInt) {
     const std::string key = "first_val";
     const int value = 10;
     ASSERT_NO_THROW(_tree.insert(key, value));
 }
 
-TEST_F(AVL_Functional_STR_INT, CorrectInsetNFind) {
+TEST_F(SPLAY_Functional_STR_INT, CorrectInsetNFind) {
     const std::string key = "first_val";
     int value = 42;
     ASSERT_NO_THROW(_tree.insert(key, value));
     ASSERT_EQ(*(_tree.find(key)), value);
 }
 
-TEST_F(AVL_Functional_STR_INT, CorrectErase) {
+TEST_F(SPLAY_Functional_STR_INT, CorrectErase) {
     const std::string key = "first_val";
     int value = 42;
     ASSERT_NO_THROW(_tree.insert(key, value));
@@ -35,7 +35,7 @@ TEST_F(AVL_Functional_STR_INT, CorrectErase) {
     ASSERT_EQ(_tree.find(key), nullptr);
 }
 
-TEST_F(AVL_Functional_STR_INT, CorrectInsetNFind_Many) {
+TEST_F(SPLAY_Functional_STR_INT, CorrectInsetNFind_Many) {
     const std::string key = "first_val";
     int value = 42;
     const int count = 10;
@@ -59,7 +59,7 @@ TEST_F(AVL_Functional_STR_INT, CorrectInsetNFind_Many) {
     }
 }
 
-TEST_F(AVL_Functional_STR_INT, CorrectErase_Many) {
+TEST_F(SPLAY_Functional_STR_INT, CorrectErase_Many) {
     const std::string key = "first_val";
     int value = 42;
     const int count = 10;
@@ -87,7 +87,7 @@ TEST_F(AVL_Functional_STR_INT, CorrectErase_Many) {
     }
 }
 
-TEST_F(AVL_Functional_INT_DOUBLE, CanInsertKeyIntValDouble) {
+TEST_F(SPLAY_Functional_INT_DOUBLE, CanInsertKeyIntValDouble) {
 
     const int key1 = 1;
     const int key2 = 2;
