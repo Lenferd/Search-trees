@@ -27,7 +27,7 @@ private:
 
 template<typename Key, typename T>
 void SplayTree<Key, T>::rotate(SplayNode<Key, T> *parent, SplayNode<Key, T> *child) {
-    SplayNode<Key, T> *p = parent->parent;
+    SplayNode<Key, T> *grandparent = parent->parent;
 
     if (parent->left == child) {
         parent->set_left(child->right);
@@ -37,13 +37,13 @@ void SplayTree<Key, T>::rotate(SplayNode<Key, T> *parent, SplayNode<Key, T> *chi
         child->set_left(parent);
     }
 
-    if (!p) {
+    if (!grandparent) {
         root = child;
         child->parent = nullptr;
-    } else if (p->left == parent) {
-        p->set_left(child);
+    } else if (grandparent->left == parent) {
+        grandparent->set_left(child);
     } else {
-        p->set_right(child);
+        grandparent->set_right(child);
     }
 }
 
@@ -118,12 +118,12 @@ void SplayTree<Key, T>::insert(Key key, T value) {
 template<typename Key, typename T>
 void SplayTree<Key, T>::erase(Key key) {
     find(key);
-    if (!root || (root && root->key != key)) {
+    if (!root || root->key != key) {
         return;
     }
     SplayNode<Key, T> *to_delete = root; // TODO: delete it
 
-    if (! root->right && !root->left) {
+    if (!root->right && !root->left) {
         root = nullptr;
         return;
     }

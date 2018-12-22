@@ -58,7 +58,7 @@ static void AVL_Remove(BenchState& state) {
 }
 
 
-/// STD::Set
+/// STD::Map
 
 static void Map_Insert(BenchState& state) {
     std::map<int, int> tree;
