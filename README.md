@@ -1,7 +1,10 @@
 # Search Trees
 
-Implementations of trees: **avl**, **treap**  
-Compare search trees: **avl**, **treap**, **red-black**, **sort + binary**
+*By Ovcharuk Oleg and Shumihin Sergey*  
 
-Ovcharuk Oleg  
-Shumihin Sergey
+Implementations of trees:
+* [AVL](./src/avl)
+* [Treap](./src/treap)
+* [Splay](./src/splay)
+
+Report with graphics is available [here](./results/report.ipynb).
